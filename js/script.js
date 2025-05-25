@@ -15,12 +15,6 @@ function atualizarDOM() {
     verificaFimJogo();
 }
 
-function salvarEstado() {
-    localStorage.setItem("vidaGorila", vidaGorila);
-    localStorage.setItem("humanosRestantes", humanosRestantes);
-    localStorage.setItem("ataques", ataques)
-}
-
 function verificaFimJogo() {
     if (vidaGorila <= 0){
         alert("O gorila foi derrotado")
@@ -31,10 +25,26 @@ function verificaFimJogo() {
     }
 }
 
+function salvarEstado() {
+    localStorage.setItem("vidaGorila", vidaGorila);
+    localStorage.setItem("humanosRestantes", humanosRestantes);
+    localStorage.setItem("ataques", ataques)
+}
+
+function carregarEstado() {
+  const vg = localStorage.getItem("vidaGorila");
+  const hr = localStorage.getItem("humanosRestantes");
+  const a = localStorage.getItem("ataques");
+  if (vg) vidaGorila = parseInt(vg);
+  if (h) humanos = JSON.parse(hr);
+  if (a) ataques = parseInt(a);
+}
+
 function resetarJogo(){
     vidaGorila = 100;
     humanosRestantes = 100;
     ataques = 0;
     localStorage.clear();
+    atualizarDOM();
     log("Novo jogo iniciado.");
 }
