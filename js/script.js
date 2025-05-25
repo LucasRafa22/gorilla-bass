@@ -8,6 +8,16 @@ function log(texto) {
     logDiv.scrollTop = logDiv.scrollHeight;
 }
 
+function verificaFimJogo() {
+    if (vidaGorila <= 0){
+        alert("O gorila foi derrotado")
+        resetarJogo()
+    } else if (humanosRestantes <= 0) {
+        alert("Todos os humanos foram derrotados! O gorila venceu!")
+        resetarJogo()
+    }
+}
+
 function resetarJogo(){
     vidaGorila = 100;
     humanosRestantes = 100;
