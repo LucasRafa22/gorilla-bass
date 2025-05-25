@@ -2,9 +2,20 @@ let vidaGorila = 100;
 let humanosRestantes = 100;
 let ataques = 0
 
+document.addEventListener("DOMContentLoaded", () => {
+    carregarEstado();
+    atualizarDOM();
+    setInterval(humanosAtaque, 3000);
+
+    document.getElementById("btnAtacar").addEventListener("click", atacar);
+    document.getElementById("btnDefender").addEventListener("click", defender);
+    document.getElementById("btnCurar").addEventListener("click", curar);  
+})
+
 function atacar() {
     let vivos = humanosRestantes;
     let mortos = Math.min(5, vivos);
+    humanosRestantes -= mortos;
     ataques++;
     log(`Gorila atacou e eliminou ${mortos} humanos.`);
     salvarEstado();
@@ -19,7 +30,7 @@ function curar() {
 }
 
 function defender() {
-    log("Gorila está defendendo. Menos dano no próximo ataque.")
+    log("Gorila está defendendo.")
     localStorage.setItem("defendendo", "true")
 }
 
@@ -71,7 +82,7 @@ function carregarEstado() {
   const hr = localStorage.getItem("humanosRestantes");
   const a = localStorage.getItem("ataques");
   if (vg) vidaGorila = parseInt(vg);
-  if (h) humanos = JSON.parse(hr);
+  if (hr) humanosRestantes = parseInt(hr);
   if (a) ataques = parseInt(a);
 }
 
