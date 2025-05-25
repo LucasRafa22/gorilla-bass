@@ -2,8 +2,15 @@ let vidaGorila = 100;
 let humanosRestantes = 100;
 let ataques = 0
 
+function curar() {
+    vidaGorila = Math.min(vidaGorila + 10, 100);
+    log("Gorila se curou e recuperou 10 de vida.")
+    salvarEstado()
+    atualizarDOM()
+}
+
 function defender() {
-    log("O gorila está defendendo. Menos dano no próximo ataque.")
+    log("Gorila está defendendo. Menos dano no próximo ataque.")
     localStorage.setItem("defendendo", "true")
 }
 
