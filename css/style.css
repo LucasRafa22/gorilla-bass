@@ -11,6 +11,11 @@ body{
 }
 
 .conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 900px;
+    justify-content: space-around;
     background-color: aqua;
 }
 
@@ -18,9 +23,21 @@ body{
     display: flex;
     background-color: black;
     color: white;
-    width: 200px;
-    height: 150px;
+    width: 300px;
+    height: 200px;
     padding: 10px;
     flex-direction: column;
     justify-content: center;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.arena{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    width: 200px;
+    height: 200px;
 }
