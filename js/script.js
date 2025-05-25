@@ -23,6 +23,20 @@ function defender() {
     localStorage.setItem("defendendo", "true")
 }
 
+function humanosAtaque() {
+    if(humanosRestantes <= 0 || vidaGorila <= 0) return;
+    let dano = Math.floor(Math.random() * 10) + 1;
+    if(localStorage.getItem("defendendo") == "true"){
+        dano = Math.floor(dano/2);
+        localStorage.removeItem("defendendo")
+    }
+    vidaGorila -= dano;
+
+    log(`Humanos atacaram e causaram ${dano} de dano.`);
+    salvarEstado();
+    atualizarDOM();
+}
+
 function log(texto) {
     const logDiv = document.getElementById("log");
     logDiv.innerHTML += `<p>${texto}</p>`;
