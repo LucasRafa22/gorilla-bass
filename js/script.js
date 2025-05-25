@@ -8,6 +8,13 @@ function log(texto) {
     logDiv.scrollTop = logDiv.scrollHeight;
 }
 
+function atualizarDOM() {
+    document.getElementById("vidaGorila").textContent = vidaGorila;
+    document.getElementById("humanosRestantes").textContent = humanosRestantes;
+    document.getElementById("ataques").textContent = ataques;
+    verificaFimJogo();
+}
+
 function verificaFimJogo() {
     if (vidaGorila <= 0){
         alert("O gorila foi derrotado")
