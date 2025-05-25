@@ -15,6 +15,12 @@ function atualizarDOM() {
     verificaFimJogo();
 }
 
+function salvarEstado() {
+    localStorage.setItem("vidaGorila", vidaGorila);
+    localStorage.setItem("humanosRestantes", humanosRestantes);
+    localStorage.setItem("ataques", ataques)
+}
+
 function verificaFimJogo() {
     if (vidaGorila <= 0){
         alert("O gorila foi derrotado")
