@@ -2,6 +2,15 @@ let vidaGorila = 100;
 let humanosRestantes = 100;
 let ataques = 0
 
+function atacar() {
+    let vivos = humanosRestantes;
+    let mortos = Math.min(5, vivos);
+    ataques++;
+    log(`Gorila atacou e eliminou ${mortos} humanos.`);
+    salvarEstado();
+    atualizarDOM();
+}
+
 function curar() {
     vidaGorila = Math.min(vidaGorila + 10, 100);
     log("Gorila se curou e recuperou 10 de vida.")
